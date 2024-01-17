@@ -22,13 +22,13 @@ createApp({
                 }else{
                     alert('驗證錯誤');
                     setTimeout(() => {
-                        window.location.href= '../index.html';
+                        window.location.href= './index.html';
                     }, 2000);
                 }
             }catch(error){
                 alert('驗證錯誤');
                 setTimeout(() => {
-                    window.location.href= '../index.html';
+                    window.location.href= './index.html';
                 }, 2000);
             }
         }
@@ -41,7 +41,7 @@ createApp({
                 alert(res.data.message);
                 setTimeout(() => {
                     document.cookie = 'listToken=;  max-age=0';
-                    window.location.href= '../index.html';
+                    window.location.href= './index.html';
                 },500);
             }catch(error){
                 console.log(error);

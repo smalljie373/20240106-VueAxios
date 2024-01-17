@@ -14,7 +14,7 @@ createApp({
                 const token = res.data.token;
                 document.cookie = `listToken=${token};  max-age=1200`;
                 setTimeout(() => {
-                    window.location.href= '../products.html';
+                    window.location.href= './products.html';
                 }, 2000);
             }catch(error){
                 alert('登入失敗');
