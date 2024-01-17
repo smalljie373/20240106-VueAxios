@@ -1,5 +1,4 @@
-import { createApp, ref } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js'
-import Swal from 'sweetalert2';
+const { createApp, ref } = Vue;
 const apiUrl = 'https://ec-course-api.hexschool.io/v2/admin/signin';
 
 createApp({
@@ -11,18 +10,14 @@ createApp({
         const loginSubmit = async () => {
             try{
                 const res = await axios.post(apiUrl,loginData.value);
-                Swal.fire({
-                    title: '登入成功',
-                    text: '3秒後將自動轉到產品列表頁面',
-                    icon: 'success',
-                    showConfirmButton: false,
-                    timer: 3000
-                });
+                alert('登入成功!');
+                const token = res.data.token;
+                document.cookie = `listToken=${token};  max-age=1200`;
                 setTimeout(() => {
-                    console.log(res);
-                },3000)
+                    window.location.href= '../products.html';
+                }, 2000);
             }catch(error){
-                console.log(error);
+                alert('登入失敗');
             }
             loginData.value={
                 username: '',
